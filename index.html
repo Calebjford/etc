@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>T.I.M.B.E.R BOTS</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800;900&family=Inter:wght@400;500;700&display=swap');
+
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: #ffffff;
+      color: #000000;
+      font-family: Inter, sans-serif;
+      overflow-x: hidden;
+    }
+
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 25px 8%;
+      border-bottom: 1px solid #ffffff15;
+      background: #000000;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      backdrop-filter: blur(15px);
+    }
+
+    .logo {
+      font-family: Orbitron, sans-serif;
+      font-weight: 900;
+      font-size: 21px;
+      letter-spacing: 2px;
+      color: #ffffff;
+    }
+
+    .logo span { color: var(#000000); }
+
+
+
+
+    nav a {
+      color: #ffffff;
+      text-decoration: none;
+      margin-left: 28px;
+      font-size: 13px;
+      transition: .2s;
+    }
+
+    nav a:hover { color: var(#000000); }
+
+    .hero {
+      min-height: 83vh;
+      padding: 100px 8% 75px;
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      align-items: center;
+      gap: 35px;
+    }
+
+    .tag {
+      color: var(#000000);
+      font-family: Orbitron, sans-serif;
+      font-size: 11px;
+      letter-spacing: 4px;
+      margin-bottom: 25px;
+      align-items: flex-start
+    }
+
+    h1 {
+      font-family: Orbitron, sans-serif;
+      font-weight: 900;
+      font-size: clamp(42px, 6.5vw, 82px);
+      line-height: 1.12;
+      letter-spacing: -3px;
+      align-items: flex-start
+    }
+
+
+    .hero p {
+      color: var(#000000);
+      max-width: 490px;
+      line-height: 1.9;
+      margin: 25px 0 32px;
+      font-size: 15px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 15px 23px;
+      background: var(#000000);
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: 800;
+      font-size: 12px;
+      letter-spacing: 1px;
+      border: 1px solid var(#000000);
+      transition: .25s;
+    }
+
+    .btn:hover {
+        background: transparent;
+        color: white;
+        border-color: #082805;
+        margin-left: 10px;
+      }
+
+
+    .btn.secondary {
+      background: transparent;
+      color: white;
+      border-color: #082805;
+      margin-left: 10px;
+    }
+
+
+
+    .robot {
+      min-height: 380px;
+      display: grid;
+      place-items: center;
+      position: relative;
+      isolation: isolate;
+    }
+
+
+
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      margin: 0 8%;
+      background: #082805;
+      border: 1px solid rgb(21 4 4 / 0.78);
+    }
+
+    .stat {
+      text-align: center;
+      padding: 30px 10px;
+      border-right: 1px solid #082805;
+    }
+
+    .stat:last-child { border: none; }
+
+    .stat strong {
+      display: block;
+      color: #ffffff;
+      font: 800 29px Orbitron, sans-serif;
+      margin-bottom: 10px;
+    }
+
+    .stat small {
+      color: #ffffff;
+      font-size: 10px;
+      letter-spacing: 2px;
+    }
+
+    section { padding: 100px 8%; }
+
+    .section-tag {
+      color: var(#000000);
+      align-items: center;
+      font: 11px Orbitron, sans-serif;
+      letter-spacing: 3px;
+      margin-bottom: 15px;
+    }
+
+    h2 {
+      font: 800 clamp(28px, 4vw, 43px) Orbitron, sans-serif;
+      margin-bottom: 18px;
+    }
+
+    .section-desc {
+      color: var(#ffffff);
+      line-height: 1.8;
+      max-width: 550px;
+      margin-bottom: 40px;
+      font-size: 14px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .card {
+      padding: 30px;
+      background: linear-gradient(145deg, #082805, #000000);
+      border: 1px solid rgb(21 4 4 / 0.78);
+      transition: .3s;
+      width: 300px;
+      height: 190px;
+    }
+
+    .card:hover {
+      border-color: #ffffff;
+      transform: translateY(-7px);
+      box-shadow: 0 15px 45px #000000;
+    }
+
+
+    .card h3 {
+      font: 600 16px Orbitron, sans-serif;
+      margin-bottom: 15px;
+    }
+
+    .card p {
+      color: #ffffff;
+      line-height: 1.8;
+      font-size: 13px;
+    }
+
+    .robot-panel {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 45px;
+      align-content: center;
+      padding: 40px;
+      background: #082805;
+    }
+
+
+
+    .robot-panel p {
+      color: #ffffff;
+      line-height: 1.9;
+      margin: 20px 0;
+      font-size: 14px;
+    }
+
+    .pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-content: center
+    }
+
+    .pills span {
+      color: #ffffff;
+      align-content: center;
+      border: 1px solid #082805;
+      padding: 8px 11px;
+      font-size: 10px;
+      letter-spacing: 1px;
+    }
+
+    .join {
+      text-align: center;
+      background: black;
+      border-top: 1px solid #ffffff12;
+      border-bottom: 1px solid #ffffff12;
+    }
+
+    .join p {
+      max-width: 550px;
+      margin: 20px auto 30px;
+      color: var(#ffffff);
+      line-height: 1.8;
+    }
+
+    footer {
+      padding: 28px 8%;
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+      color: #005541;
+      font-size: 11px;
+    }
+
+    footer span { color: var(#000000); }
+
+    @media (max-width: 760px) {
+      nav { padding: 20px 5%; }
+      nav a { margin-left: 12px; font-size: 11px; }
+      .hero { grid-template-columns: 1fr; padding: 75px 6% 45px; }
+      .robot { min-height: 320px; }
+      .orbit { width: 250px; height: 250px; }
+      .core { font-size: 120px; }
+      .stats { grid-template-columns: repeat(2, 1fr); margin: 0 6%; }
+      .stat:nth-child(2) { border-right: none; }
+      .stat:nth-child(-n+2) { border-bottom: 1px solid #ffffff12; }
+      section { padding: 70px 6%; }
+      .cards { grid-template-columns: 1fr; }
+      .robot-panel { grid-template-columns: 1fr; padding: 22px; }
+      .btn.secondary { margin-left: 0; margin-top: 12px; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">T.I.M.B.E.R<span> </span>BOTS</div>
+  <div>
+    <a href="#about">ABOUT</a>
+    <a href="#robot">ROBOT</a>
+    <a href="#team">TEAM</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div>
+    <div class="tag">// THE FUTURE IS BUILT, NOT FOUND</div>
+    <h1>ENGINEER<br>THE <span>FUTURE.</span></h1>
+    <p>
+      We are the next generation of innovators, engineers, and problem
+      solvers. Powered by code, built with precision, and driven to compete.
+      Welcome to our world of FIRST Tech Challenge robotics
+    </p>
+    <a class="btn" href="#robot">EXPLORE OUR ROBOT</a>
+    <a class="btn secondary" href="#team">MEET THE TEAM</a>
+  </div>
+
+  <div class="robot">
+    <div class="orbit"></div>
+    <div class="core"></div>
+
+  </div>
+</header>
+
+<div class="stats" id="team">
+  <div class="stat"><strong>01</strong><small>MISSION</small></div>
+  <div class="stat"><strong>100%</strong><small>DEDICATION</small></div>
+  <div class="stat"><strong>∞</strong><small>POSSIBILITIES</small></div>
+  <div class="stat"><strong>FTC</strong><small>ROBOTICS</small></div>
+</div>
+
+<section id="about">
+  <div class="section-tag">// WHAT WE DO</div>
+  <h2>MORE THAN ROBOTS.</h2>
+  <p class="section-desc">
+    Engineering is just the beginning. We build skills, solve real
+    challenges, and push the boundaries of what we can create together.
+  </p>
+
+
+
+  <article class="card">
+    <h3>INNOVATION</h3>
+    <p>Collaborate, document ideas, share our story, and inspire the next generation of STEM creators.</p>
+  </article>
+  </div>
+
+
+  <article class="card">
+    <h3>INNOVATION</h3>
+    <p>Collaborate, document ideas, share our story, and inspire the next generation of STEM creators.</p>
+  </article>
+  </div>
+
+
+  <article class="card">
+    <h3>INNOVATION</h3>
+    <p>Collaborate, document ideas, share our story, and inspire the next generation of STEM creators.</p>
+  </article>
+  </div>
+
+
+  <article class="card">
+    <h3>INNOVATION</h3>
+    <p>Collaborate, document ideas, share our story, and inspire the next generation of STEM creators.</p>
+  </article>
+  </div>
+
+
+
+  <article class="card">
+    <h3>INNOVATION</h3>
+    <p>Collaborate, document ideas, share our story, and inspire the next generation of STEM creators.</p>
+  </article>
+  </div>
+
+
+
+  <article class="card">
+    <h3>INNOVATION</h3>
+    <p>Collaborate, document ideas, share our story, and inspire the next generation of STEM creators.</p>
+  </article>
+  </div>
+
+
+
+  <article class="card">
+    <h3>INNOVATION</h3>
+    <p>Collaborate, document ideas, share our story, and inspire the next generation of STEM creators.</p>
+  </article>
+  </div>
+
+
+
+  <article class="card">
+    <h3>INNOVATION</h3>
+    <p>Collaborate, document ideas, share our story, and inspire the next generation of STEM creators.</p>
+  </article>
+  </div>
+
+
+
+  <article class="card">
+    <h3>INNOVATION</h3>
+    <p>Collaborate, document ideas, share our story, and inspire the next generation of STEM creators.</p>
+  </article>
+  </div>
+
+
+
+  <article class="card">
+    <h3>INNOVATION</h3>
+    <p>Collaborate, document ideas, share our story, and inspire the next generation of STEM creators.</p>
+  </article>
+  </div>
+
+
+
+
+</section>
+
+<section id="robot">
+  <div class="section-tag">// HARDWARE DATABASE</div>
+  <h2>MEET THE MACHINE.</h2>
+  <p class="section-desc">
+    Every great robot starts with a bold idea. Here's where our engineering journey comes to life.
+  </p>
+
+  <div class="robot-panel">
+    <div>
+      <div class="section-tag">UNIT 001 // FTC</div>
+      <h2>BUILT TO<br>COMPETE.</h2>
+      <p>
+        Precision engineering meets creative problem-solving.
+        From the drivetrain to autonomous navigation, every component
+        has a purpose. Replace this section with your team's real robot,
+        mechanisms, and technical specifications.
+      </p>
+      <div class="pills">
+        <span>DRIVETRAIN</span>
+        <span>AUTONOMOUS</span>
+        <span>JAVA / BLOCKS</span>
+        <span>ITERATION</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="section-tag">// OUR CORE VALUES</div>
+  <h2>BUILT DIFFERENT.</h2>
+  <div class="cards">
+    <article class="card">
+      <div class="icon">◉</div>
+      <h3>GRACIOUS PROFESSIONALISM</h3>
+      <p>Compete fiercely. Treat others with respect. Help everyone succeed.</p>
+    </article>
+    <article class="card">
+      <div class="icon">✳</div>
+      <h3>TEAMWORK</h3>
+      <p>Different minds, one mission. Our best ideas come from building together.</p>
+    </article>
+    <article class="card">
+      <div class="icon">↗</div>
+      <h3>NEVER STOP</h3>
+      <p>Test, learn, fail forward, and come back stronger every single time.</p>
+    </article>
+  </div>
+</section>
+
+<section class="join">
+  <div class="section-tag">// YOUR NEXT CHAPTER STARTS HERE</div>
+  <h2>READY TO BUILD<br><span style="color:var(#000000)">SOMETHING EPIC?</span></h2>
+  <p>
+    The future belongs to the people who build it.
+    Join the mission, follow our journey, and discover what robotics can do.
+  </p>
+  <a class="btn" href="https://www.firstinspires.org/" target="_blank" rel="noopener noreferrer">
+    DISCOVER FIRST ↗
+  </a>
+</section>
+
+<footer>
+  <div class="logo">T.I.M.B.E.R<span> </span>BOTS</div>
+  <div>Hi</div>BOTS</div>
+  <div>FIRST TECH CHALLENGE</div>
+</footer>
+
+</body>
+</html>
+</title>
+</head>
+<body>
+
+</body>
+</html>
